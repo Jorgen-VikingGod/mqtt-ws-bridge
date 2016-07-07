@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="Juergen Skrotzky alias Jorgen (JorgenVikingGod@gmail.com)">
+    <title>WordClock-13435218</title>
+    <link rel="stylesheet" href="css/bootstrap-cyborg.min.css">
+    <style>
+      body {padding-top: 70px;}
+      .glyphicon{text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;}
+      canvas:focus {outline: none;}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">WordClock</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav><!-- /navbar -->
+    <div class="container-fluid">
+      <h3>WordClock-13435218 (18x18)</h3>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Forground Color</h3>
+            </div>
+            <div class="panel-body">
+              <p>Click to change foreground color</p>
+              <button type="button" class="wordclock-color btn btn-lg btn-block btn-default" topic="color" payload="255,255,255">White <span class="pull-right glyphicon glyphicon-tint" style="color: #ffffff;"></span></button>
+              <button type="button" class="wordclock-color btn btn-lg btn-block btn-default" topic="color" payload="255,0,0">Red <span class="pull-right glyphicon glyphicon-tint" style="color: #ff0000;"></span></button>
+              <button type="button" class="wordclock-color btn btn-lg btn-block btn-default" topic="color" payload="0,255,0">Green <span class="pull-right glyphicon glyphicon-tint" style="color: #00ff00;"></span></button>
+              <button type="button" class="wordclock-color btn btn-lg btn-block btn-default" topic="color" payload="0,0,255">Blue <span class="pull-right glyphicon glyphicon-tint" style="color: #0000ff;"></span></button>
+              <button type="button" class="wordclock-color btn btn-lg btn-block btn-default" topic="color" payload="255,255,0">Yellow <span class="pull-right glyphicon glyphicon-tint" style="color: #ffff00;"></span></button>
+              <p>Pick your color</p>
+              <div id="huewheel" style="margin: 0px auto; width: 100%; max-width: 250px;"></div>
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-primary -->
+        </div><!-- /col-lg-4 col-md-6 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">Global Settings</h3>
+            </div>
+            <div class="panel-body">
+              <p>Click to change brightness</p>
+              <div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="settings">
+                <div class="btn-group btn-group-lg" role="group">
+                  <button type="button" class="wordclock-brightness-arrow btn btn-default" topic="brightness" payload="down"><i class="glyphicon glyphicon-triangle-left"></i></button>
+                </div>
+                <div class="btn-group btn-group-lg" role="group">
+                  <button type="button" class="wordclock-brightness btn btn-default" topic="brightness" payload="50">50</button>
+                </div>
+                <div class="btn-group btn-group-lg" role="group">
+                  <button type="button" class="wordclock-brightness btn btn-default" topic="brightness" payload="100">100</button>
+                </div>
+                <div class="btn-group btn-group-lg" role="group">
+                  <button type="button" class="wordclock-brightness btn btn-default" topic="brightness" payload="175">175</button>
+                </div>
+                <div class="btn-group btn-group-lg" role="group">
+                  <button type="button" class="wordclock-brightness btn btn-default" topic="brightness" payload="255">255</button>
+                </div>
+                <div class="btn-group btn-group-lg" role="group">
+                  <button type="button" class="wordclock-brightness-arrow btn btn-default" topic="brightness" payload="up"><i class="glyphicon glyphicon-triangle-right"></i></button>
+                </div>
+              </div>
+              <p></p>
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-primary -->
+        </div><!-- /col-lg-4 col-md-6 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Text Effect</h3>
+            </div>
+            <div class="panel-body">
+              <p>Click to change text effect</p>
+              <button type="button" class="wordclock-color-effect btn btn-lg btn-block btn-default" topic="color/effect" payload="solid">Solid</button>
+              <button type="button" class="wordclock-color-effect btn btn-lg btn-block btn-default" topic="color/effect" payload="hue">Hue Spectrum</button>
+              <button type="button" class="wordclock-color-effect btn btn-lg btn-block btn-default" topic="color/effect" payload="random">Random</button>
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-primary -->
+        </div><!-- /col-lg-4 col-md-6 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Background Color</h3>
+            </div>
+            <div class="panel-body">
+              <p>Click to change background color/effect</p>
+              <button type="button" class="wordclock-background btn btn-lg btn-block btn-default" topic="background" payload="black">Black</button>
+              <button type="button" class="wordclock-background btn btn-lg btn-block btn-default" topic="background" payload="plasma">Plasma</button>
+              <button type="button" class="wordclock-background btn btn-lg btn-block btn-default" topic="background" payload="fire">Fire</button>
+              <button type="button" class="wordclock-background btn btn-lg btn-block btn-default" topic="background" payload="lava">Lava</button>
+              <button type="button" class="wordclock-background btn btn-lg btn-block btn-default" topic="background" payload="cloud">Cloud</button>
+              <button type="button" class="wordclock-background btn btn-lg btn-block btn-default" topic="background" payload="blackwhite">Black & White</button>
+              <button type="button" class="wordclock-background btn btn-lg btn-block btn-default" topic="background" payload="blackgreen">Black & Green</button>
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-primary -->
+        </div><!-- /col-lg-4 col-md-6 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Effect</h3>
+            </div>
+            <div class="panel-body">
+              <p>Click to change effect</p>
+              <button type="button" class="wordclock-effect btn btn-lg btn-block btn-default" topic="effect" payload="normal">Clock Mode</button>
+              <p>Specials</p>
+              <button type="button" class="wordclock-effect btn btn-lg btn-block btn-default" topic="effect" payload="bierleer">Bier Leer</button>
+              <button type="button" class="wordclock-effect btn btn-lg btn-block btn-default" topic="effect" payload="heart">Heart</button>
+              <button type="button" class="wordclock-effect btn btn-lg btn-block btn-default" topic="effect" payload="tetris">Tetris</button>
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-primary -->
+        </div><!-- /col-lg-4 col-md-6 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Tetris</h3>
+            </div>
+            <div class="panel-body">
+              <p>Tetris controls</p>
+              <div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="tetris">
+                <div class="btn-group btn-group-lg" role="group">
+                  <button type="button" class="wordclock-tetris btn btn-default" topic="tetris/move" payload="left"><i class="glyphicon glyphicon-triangle-left"></i></button>
+                </div>
+                <div class="btn-group btn-group-lg btn-group-vertical">
+                  <button type="button" class="wordclock-tetris btn btn-default" topic="tetris/move" payload="rotate"><i class="glyphicon glyphicon-repeat"></i></button>
+                  <button type="button" class="wordclock-tetris btn btn-default" topic="tetris/move" payload="down"><i class="glyphicon glyphicon-triangle-bottom"></i></button>
+                </div>
+                <div class="btn-group btn-group-lg" role="group">
+                  <button type="button" class="wordclock-tetris btn btn-default" topic="tetris/move" payload="right"><i class="glyphicon glyphicon-triangle-right"></i></button>
+                </div>
+              </div>
+              <p></p>
+              <button type="button" class="wordclock-tetris btn btn-lg btn-block btn-default" topic="tetris" payload="reset"><i class="glyphicon glyphicon-refresh"></i> Reset</button>
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-primary -->
+        </div><!-- /col-lg-4 col-md-6 -->
+      </div><!-- /row -->
+    </div><!-- /container-fluid -->
+
+    <!-- jQuery, bootstrap, socket.io and hue color wheel -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/huewheel.min.js"></script>
+    <script type="text/javascript">
+      var hw;
+      var color         = '255,255,255';
+      var effect        = 'normal';
+      var colorEffect   = 'solid';
+      var background    = 'black';
+      var brightnessMap = ['50','100','175','255'];
+      var brightness    = brightnessMap[1];
+      // socket.io connection to mqtt bridge with base topic
+      var baseTopic     = 'WordClock/13435218/';
+      var socket        = io.connect('http://localhost:8080');
+      socket.on('connect', function () {
+        socket.emit('subscribe',{topic:baseTopic+'#'});
+        socket.on('mqtt', function (msg) {
+          onMessageArrived(msg);
+        });
+      });
+      Array.prototype.rotate = function(reverse){ if(reverse){ this.unshift(this.pop()); }else{ this.push(this.shift()); } return this; }
+      function shiftArrayToBrightness(brightnessValue) {
+        $.each(brightnessMap, function() {
+          if (brightnessMap[0] == brightnessValue) return;
+          if (brightnessMap.rotate()[0] == brightnessValue) return;
+        });
+      }
+      function brightnessUp()   { brightness = brightnessMap.rotate()[0]; }
+      function brightnessDown() { brightness = brightnessMap.rotate(true)[0]; }
+      function onMessageArrived(message) {
+        if        (message.topic == baseTopic+'color')        { color       = message.payload;  updateButton('wordclock-color', color);   hw.rgb(color.split(',')[0],color.split(',')[1],color.split(',')[2]);
+        } else if (message.topic == baseTopic+'effect')       { effect      = message.payload;  updateButton('wordclock-effect', effect);
+        } else if (message.topic == baseTopic+'color/effect') { colorEffect = message.payload;  updateButton('wordclock-color-effect', colorEffect);
+        } else if (message.topic == baseTopic+'background')   { background  = message.payload;  updateButton('wordclock-background', background);
+        } else if (message.topic == baseTopic+'brightness')   { brightness  = message.payload;  updateButton('wordclock-brightness', brightness);   shiftArrayToBrightness(brightness); }
+      };
+      function updateButton(css, value) {
+        $.each($('button.'+css), function(index, button) {
+          $(button).removeClass('active');
+          if ($(button).attr('payload') == value) $(button).addClass('active')
+        });
+      }
+      function send(topic, message, retained) {
+        socket.emit('publish', {topic: topic, payload: message, retained: retained});
+        if      (topic == baseTopic + 'color/effect') colorEffect = message;
+        else if (topic == baseTopic + 'background')   background  = message;
+        else if (topic == baseTopic + 'effect')       effect      = message;
+        else if (topic == baseTopic + 'color') {      color       = message;
+          socket.emit('publish', {topic: baseTopic+'color/effect', payload: 'solid', retained: retained});
+        }
+      };
+      $(document).ready(function() {
+        $('button.wordclock-background, button.wordclock-color-effect, button.wordclock-color, button.wordclock-effect, button.wordclock-brightness').click(function(){
+          send(baseTopic+$(this).attr('topic'), $(this).attr('payload'), true);
+        });
+        $('button.wordclock-tetris').click(function(){
+          send(baseTopic+$(this).attr('topic'), $(this).attr('payload'), false);
+        });
+        $('button.wordclock-brightness-arrow').click(function(){
+          if ($(this).attr('payload') == 'down') { brightnessDown(); }else{ brightnessUp(); }
+          send(baseTopic+$(this).attr('topic'), brightness, true);
+        });
+        hw = new HueWheel('huewheel',{onClick:function(e){ send(baseTopic+'color', e.r+','+e.g+','+e.b, true); }});
+      });
+    </script>
+  </body>
+</html>
