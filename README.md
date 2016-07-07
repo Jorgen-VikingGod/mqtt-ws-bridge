@@ -2,13 +2,15 @@
 simple bridge between socket.io (in browser) and mqtt client (in node.js)
 
 ## setup
-``git clone https://github.com/Jorgen-VikingGod/mqtt-ws-bridge.git``
+- ``git clone https://github.com/Jorgen-VikingGod/mqtt-ws-bridge.git``
 
-``npm install``
+- ``npm install``
 
-``npm start``
+- edit **config.js**<br>https://github.com/Jorgen-VikingGod/mqtt-ws-bridge/blob/master/config.js#L5-L17
 
-open **http://localhost:8080/index.html** or **http://localhost:8080/index.html**
+- ``npm start``
+
+- open **http://localhost:8080/index.html** or **http://localhost:8080/index.html**
 
 ## Configure 
 you can modify and add new actions by addind new buttons to the html.
